@@ -1,0 +1,1 @@
+Placeholder for any FAQs, unstructed, searchable text used by enterprise search/RAG.

@@ -1,0 +1,71 @@
+# IT Help Desk flow – VPN connectivity troubleshooting and escalation (Rasa 3.15.x)
+# Handles: greet → clarify connection type → error details → last success → network →
+#          initial advice → escalate to ticket (P1 if time-sensitive) → summary
+
+flows:
+  it_help_desk_connectivity:
+    name: IT Help Desk connectivity
+    description: |
+      This flow helps users with a connectivity issues, or other IT related support requests.
+    steps:
+      - collect: connection_issue_type
+        description: Whether the issue is VPN, company portal, or another work tool.
+
+      - collect: has_error_message
+        description: Whether the user sees an error message when they try to connect (yes/no).
+        next:
+          - if: slots.has_error_message = "yes"
+            then:
+              - collect: error_message_text
+                description: The exact error message text the user sees, e.g. "VPN authentication failed. Please check your credentials."
+                next: bot_thx_0
+          - else: bot_thx_0
+
+      - id: bot_thx_0
+        action: utter_ack_network
+        next: ask_last_successful
+
+      - id: ask_last_successful
+        collect: last_successful_connection
+        description: When the user was last able to connect successfully (e.g. yesterday afternoon, last week).
+
+      - collect: current_network
+        description: Whether the user is on home Wi-Fi or another network (home_wifi / other).
+
+      - action: utter_initial_advice
+
+      - collect: need_escalation
+        description: Whether the user still needs to escalate (e.g. already tried restarting, still not working, or has urgent deadline).
+        next:
+          - if: slots.need_escalation = "yes"
+            then: submit_ticket_step
+          - else: resolved_step
+
+      - id: resolved_step
+        noop: true
+        next: END
+
+      - id: submit_ticket_step
+        action: action_submit_ticket
+
+      - action: utter_escalating
+
+      - id: after_escalating
+        noop: true
+        next:
+          - if: slots.ticket_priority = "p1_critical"
+            then:
+              - action: utter_p1_priority
+                next: one_moment_step
+          - else: one_moment_step
+
+      - id: one_moment_step
+        action: utter_one_moment
+
+      - action: utter_ticket_submitted
+
+      - action: utter_ticket_summary
+
+      - action: utter_contacted_shortly
+
+        next: END

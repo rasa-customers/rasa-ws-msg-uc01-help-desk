@@ -1,0 +1,17 @@
+# Override default flows/patterns here
+flows:
+  pattern_search:
+    steps:
+    - id: 0_action_trigger_search
+      next: END
+      action: action_trigger_search
+    name: pattern_search
+    description: Flow for handling knowledge-based questions
+
+  pattern_session_start:
+    description: Flow for starting the conversation
+    name: pattern session start
+    nlu_trigger:
+        - intent: session_start
+    steps:
+      - action: utter_it_help_desk_greet

@@ -1,0 +1,75 @@
+# Domain for IT Help Desk flow (Rasa 3.15.x)
+# Slots use categorical yes/no where possible (no true/false)
+
+slots:
+  connection_issue_type:
+    type: categorical
+    values:
+      - vpn
+      - company_portal
+      - other_work_tool
+  has_error_message:
+    type: categorical
+    values:
+      - yes
+      - no
+  error_message_text:
+    type: text
+  last_successful_connection:
+    type: text
+  current_network:
+    type: categorical
+    values:
+      - home_wifi
+      - other
+  need_escalation:
+    type: categorical
+    values:
+      - yes
+      - no
+  ticket_number:
+    type: text
+  ticket_priority:
+    type: categorical
+    values:
+      - standard
+      - p1_critical
+
+responses:
+  utter_it_help_desk_greet:
+    - text: "Hello! You have reached the IT Help Desk. How may I help you?"
+  utter_ask_connection_issue_type:
+    - text: "Understood. Just to confirm, are you having trouble connecting to your VPN, or is it a different internal system like the company portal or another work tool?"
+  utter_ask_has_error_message:
+    - text: "Got it. I'll help you troubleshoot that. First, do you see an error message when you try to connect?"
+  utter_ack_error:
+    - text: "Thanks."
+  utter_ask_last_successful_connection:
+    - text: "When was the last time you were able to successfully connect to the VPN?"
+  utter_ack_last_successful:
+    - text: "Great, that helps."
+  utter_ask_current_network:
+    - text: "Are you connected to your home Wi-Fi or another network right now?"
+  utter_ask_error_message_text:
+    - text: "What does the error message say?"
+  utter_ask_need_escalation:
+    - text: "Did the restart help, or do you still need me to open a ticket with IT support?"
+  utter_ack_network:
+    - text: "Thanks."
+  utter_initial_advice:
+    - text: "Based on the error and your answers, it sounds like a credentials sync issue. You can try restarting your computer and reconnecting. If it still fails, we'll escalate it."
+  utter_escalating:
+    - text: "Okay. Since the error persists and we've ruled out basic causes, I'll go ahead and open a ticket with IT support so they can take a closer look."
+  utter_p1_priority:
+    - text: "Given the time-sensitivity, I'm treating this as P1-Critical rather than a standard connectivity ticket."
+  utter_one_moment:
+    - text: "One moment please..."
+  utter_ticket_submitted:
+    - text: "I've submitted a support ticket on your behalf. Your case number is {{ticket_number}}."
+  utter_ticket_summary:
+    - text: "[Shows summary of ticket]"
+  utter_contacted_shortly:
+    - text: "You'll be contacted shortly by someone from our support team."
+
+actions:
+  - action_submit_ticket
