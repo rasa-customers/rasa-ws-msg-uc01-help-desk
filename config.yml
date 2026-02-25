@@ -1,6 +1,6 @@
 recipe: default.v1
 language: en
-assistant_id: evergreen
+assistant_id: rasa-ws-msg-uc01-help-desk
 
 pipeline:
   - name: SearchReadyLLMCommandGenerator
