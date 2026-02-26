@@ -34,6 +34,8 @@ slots:
     values:
       - standard
       - p1_critical
+  ticket_summary:
+    type: text
 
 responses:
   utter_it_help_desk_greet:
@@ -65,9 +67,9 @@ responses:
   utter_one_moment:
     - text: "One moment please..."
   utter_ticket_submitted:
-    - text: "I've submitted a support ticket on your behalf. Your case number is {{ticket_number}}."
+    - text: "I've submitted a support ticket on your behalf. Your case number is {ticket_number}."
   utter_ticket_summary:
-    - text: "[Shows summary of ticket]"
+    - text: "{ticket_summary}"
   utter_contacted_shortly:
     - text: "You'll be contacted shortly by someone from our support team."
 
