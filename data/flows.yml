@@ -3,6 +3,15 @@
 #          initial advice → escalate to ticket (P1 if time-sensitive) → summary
 
 flows:
+
+  create_snow_service_request:
+    name: "Create ServiceNow Service Request"
+    description: Allow end users to create a ServiceNow service request by collecting the necessary information from the user. Triggers when end users request access to or order a new service, a new product, a new software, a new hardware, etc. Should not trigger if the end user is having an issue or have something broken.
+    steps:
+      - id: service_request_creator
+        call: service_request_creator
+        next: END              
+  
   it_help_desk_connectivity:
     name: IT Help Desk connectivity
     description: |
@@ -69,3 +78,4 @@ flows:
       - action: utter_contacted_shortly
 
         next: END
+

@@ -8,6 +8,11 @@ nlg:
   prompt_template: prompts/rephraser.jinja2
   rephrase_all: False
 
+mcp_servers:
+  - name: snow_mcp_server
+    url: http://localhost:8080/
+    type: http
+
 model_groups:
   - id: gpt-4o
     models:
