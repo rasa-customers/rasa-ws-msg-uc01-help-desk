@@ -65,7 +65,7 @@ responses:
   utter_one_moment:
     - text: "One moment please..."
   utter_ticket_submitted:
-    - text: "I've submitted a support ticket on your behalf. Your case number is {{ticket_number}}."
+    - text: "I've submitted a support ticket on your behalf. Your case number is {ticket_number}."
   utter_ticket_summary:
     - text: "[Shows summary of ticket]"
   utter_contacted_shortly:
