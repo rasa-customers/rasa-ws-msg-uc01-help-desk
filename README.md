@@ -1,5 +1,32 @@
 # Workshop Use Case 01 - IT Help Desk
+An intelligent, Rasa IT support agent that guides users through VPN troubleshooting and automatically creates prioritized ServiceNow tickets when escalation is required.
 
+**Workshop Action Items**
+- [ ] Clone/Download this agent locally and run `rasa train`
+- [ ] Complete the "happy path" conversation
+- [ ] Try a conversation repair pattern
+- [ ] Run the e2e tests
+- [ ] Launch this agent in Hello Rasa
+
+> [!TIP]
+> There is a [**cheatsheet**](#cheatsheet) of Rasa commands at the bottom of this README.
+
+## Clone/Download this agent locally and run `rasa train`
+
+## Complete the "happy path" conversation
+
+## Try a conversation repair pattern
+
+## Run the e2e tests
+
+## Launch this agent in Hello Rasa
+- [ ] Create a new flow which handles a another type of IT issue.
+
+[![Launch on Hello Rasa](https://hello.rasa.com/launch.svg)](https://hello.rasa.com/go?repo=rasa-customers/starterpack-retail-banking-en)  
+
+## Rasa commands
+
+<a name="cheatsheet"></a>
 ```diff
 @@ Cheatsheet @@
 
@@ -15,7 +42,6 @@ rasa inspect --debug --log-file logs.txt
 rasa run
 rasa run actions --debug --auto-reload
 rasa run --debug --log-file logs.txt --enable-api --cors "*"
-rasa run --debug --log-file $(LOG_DIR)/logs_$(shell date +%Y%m%d%H%M%S).out --enable-api --cors "*"
 
 + Shell
 rasa shell --debug
