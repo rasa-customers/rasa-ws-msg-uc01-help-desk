@@ -22,7 +22,36 @@ An intelligent, Rasa IT support agent that guides users through VPN troubleshoot
 - [ ] Try to have the following conversation:
 
 ```
-BOT:
+BOT: Hello! You have reached the IT Help Desk. How may I help you?
+USER: I'm having trouble with my vpn
+BOT: Got it. I'll help you troubleshoot that. First, do you see an error message when you try to connect?
+USER: yes
+BOT: What does the error message say?
+USER: VPN authentication failed. Please check your credentials.
+BOT: Thanks.
+BOT: When was the last time you were able to successfully connect to the VPN?
+USER: Yesterday afternoon, around 3pm.
+BOT: Are you connected to your home Wi-Fi or another network right now?
+USER: wifi
+BOT: Based on the error and your answers, it sounds like a credentials sync issue. You can try restarting your computer and reconnecting. If it still fails, we'll escalate it.
+BOT: Did the restart help, or do you still need me to open a ticket with IT support?
+USER: I’ve already tried restarting. Still not working. I have a meeting in 2 hours and I need to have my VPN working by then
+BOT: Okay. Since the error persists and we've ruled out basic causes, I'll go ahead and open a ticket with IT support so they can take a closer look.
+BOT: Given the time-sensitivity, I'm treating this as P1-Critical rather than a standard connectivity ticket.
+BOT: One moment please...
+BOT: I've submitted a support ticket on your behalf. Your case number is INC123456.
+BOT: Ticket summary
+Issue type: vpn
+Error message seen: yes
+Error details: VPN authentication failed. Please check your credentials
+Last successful connection: Yesterday afternoon, around 3pm
+Current network: home_wifi
+Case number: INC123456
+Priority: p1_critical
+BOT: You'll be contacted shortly by someone from our support team.
+BOT: Is there anything else I can help you with?
+USER: no
+BOT: Okay, I'll be around in case you need further help.
 ```
 
 ## Try a conversation repair pattern
@@ -52,6 +81,11 @@ USER: wifi
 ```
 
 ## Run the e2e tests
+You can run your end-to-end tests using this command: `rasa test e2e tests`
+
+That command runs all the tests created in the test directory.
+
+You'll find one test didn't work. Why? How can you fix it?
 
 ## Launch this agent in Hello Rasa
 - [ ] Create a new flow which handles a another type of IT issue.
