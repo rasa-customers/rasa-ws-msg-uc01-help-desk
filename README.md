@@ -41,13 +41,13 @@ BOT: Given the time-sensitivity, I'm treating this as P1-Critical rather than a 
 BOT: One moment please...
 BOT: I've submitted a support ticket on your behalf. Your case number is INC123456.
 BOT: Ticket summary
-Issue type: vpn
-Error message seen: yes
-Error details: VPN authentication failed. Please check your credentials
-Last successful connection: Yesterday afternoon, around 3pm
-Current network: home_wifi
-Case number: INC123456
-Priority: p1_critical
+- Issue type: vpn
+- Error message seen: yes
+- Error details: VPN authentication failed. Please check your credentials
+- Last successful connection: Yesterday afternoon, around 3pm
+- Current network: home_wifi
+- Case number: INC123456
+- Priority: p1_critical
 BOT: You'll be contacted shortly by someone from our support team.
 BOT: Is there anything else I can help you with?
 USER: no
@@ -63,7 +63,7 @@ Look below at some new messages to send the bot. Rasa handles these "out-of-the-
 
 - [ ] Try to have the following conversation:
 ```diff
-BOT:Hello! You have reached the IT Help Desk. How may I help you?
+BOT: Hello! You have reached the IT Help Desk. How may I help you?
 USER: I'm having trouble with my internet
 BOT: Understood. Just to confirm, are you having trouble connecting to your VPN, or is it a different internal system like the company portal or another work tool?
 USER: vpn issue
@@ -88,7 +88,7 @@ That command runs all the tests created in the test directory.
 You'll find one test didn't work. Why? How can you fix it?
 
 ## Launch this agent in Hello Rasa
-- [ ] Create a new flow which handles a another type of IT issue.
+- [ ] Create a new flow which handles another type of IT issue.
 
 [![Launch on Hello Rasa](https://hello.rasa.com/launch.svg)](https://hello.rasa.com/go?repo=rrasa-customers/rasa-ws-msg-uc01-help-desk)  
 
