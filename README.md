@@ -23,10 +23,33 @@ An intelligent, Rasa IT support agent that guides users through VPN troubleshoot
 
 ```
 BOT:
-USER: 
 ```
 
 ## Try a conversation repair pattern
+Let's go off the "happy path" a little bit.
+
+Look below at some new messages to send the bot. Rasa handles these "out-of-the-box".
+* Notice how we'll answer two questions in one response when talking about the VPN error message. Rasa is smart enough not to ask a question it already got an answer for.
+* Rasa can also update past answers you have previously given.
+
+- [ ] Try to have the following conversation:
+```diff
+BOT:Hello! You have reached the IT Help Desk. How may I help you?
+USER: I'm having trouble with my internet
+BOT: Understood. Just to confirm, are you having trouble connecting to your VPN, or is it a different internal system like the company portal or another work tool?
+USER: vpn issue
+BOT: Got it. I'll help you troubleshoot that. First, do you see an error message when you try to connect?
++ USER: Yeah, it says: “VPN authentication failed. Please check your credentials.”
+BOT: Thanks.
+BOT: When was the last time you were able to successfully connect to the VPN?
+USER: Yesterday afternoon, around 3pm.
+BOT: Are you connected to your home Wi-Fi or another network right now?
++ USER: actually, the last time I was able to connect was yesterday around 9pm
+BOT: Thank you for the clarification! I will update the last successful connection time to yesterday at 9 PM accordingly. If you have any other details to share or questions, feel free to let me know!
+BOT: Are you connected to your home Wi-Fi or another network right now?
+USER: wifi
+...
+```
 
 ## Run the e2e tests
 

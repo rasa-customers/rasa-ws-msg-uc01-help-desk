@@ -1,0 +1,14 @@
+# Override default pattern responses here
+responses:
+  utter_can_do_something_else:
+    - text: "Is there anything else I can assist you with?"
+      metadata:
+        rephrase: False
+  utter_closing_words:
+    - text: "Okay, I'll be around in case you need further help."
+      metadata:
+        rephrase: False
+  utter_ask_continue_conversation:
+    - text: "Is there anything else I can help you with?"
+      metadata:
+        rephrase: False

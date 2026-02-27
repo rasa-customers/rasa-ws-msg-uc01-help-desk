@@ -1,1 +1,59 @@
-# E2E tests go here
+test_cases:
+  - test_case: happy-path-01
+    steps:
+    - user: "/session_start"
+    - utter: utter_it_help_desk_greet
+    - user: "Hey, I’m having trouble connecting."
+    - utter: utter_ask_connection_issue_type
+    - user: "My VPN won't connect"
+    - utter: utter_ask_has_error_message
+    - user: "yes"
+    - utter: utter_ask_error_message_text
+    - user: "VPN authentication failed. Please check your credentials."
+    - utter: utter_ack_network
+    - utter: utter_ask_last_successful_connection
+    - user: "Yesterday afternoon, around 3pm."
+    - utter: utter_ask_current_network
+    - user: "My home Wi-Fi."
+    - utter: utter_initial_advice
+    - utter: utter_ask_need_escalation
+    - user: "I’ve already tried restarting. Still not working. I have a meeting in 2 hours and I need to have my VPN working by then"
+    - utter: utter_escalating
+    - utter: utter_p1_priority
+    - utter: utter_one_moment
+    - utter: utter_ticket_submitted
+    - utter: utter_ticket_summary
+    - utter: utter_contacted_shortly
+    - utter: utter_ask_continue_conversation
+    - user: "no"
+    - utter: utter_closing_words
+
+  - test_case: digression-path-01
+    steps:
+    - user: "/session_start"
+    - utter: utter_it_help_desk_greet
+    - user: "I'm having trouble with my internet"
+    - utter: utter_ask_connection_issue_type
+    - user: "vpn issue"
+    - utter: utter_ask_has_error_message
+    - user: "Yeah, it says: “VPN authentication failed. Please check your credentials.”"
+    - utter: utter_ack_network
+    - utter: utter_ask_last_successful_connection
+    - user: "Yesterday afternoon, around 3pm."
+    - utter: utter_ask_current_network
+    - user: "actually, the last time I was able to connect was yesterday around 9pm"
+    - utter: utter_corrected_previous_input
+    - utter: utter_ask_current_network
+    - user: "wifi"
+    - utter: utter_initial_advice
+    - utter: utter_ask_need_escalation
+    - user: "I’ve already tried restarting. Still not working. I have a meeting in 2 hours and I need to have my VPN working by then"
+    - utter: utter_escalating
+    - utter: utter_p1_priority
+    - utter: utter_one_moment
+    - utter: utter_ticket_submitted
+    - utter: utter_ticket_summary
+    - utter: utter_contacted_shortly
+    - utter: utter_ask_continue_conversation
+    - user: "no thx"
+    - utter: utter_closing_words

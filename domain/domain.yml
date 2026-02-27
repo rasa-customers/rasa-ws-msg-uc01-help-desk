@@ -67,7 +67,15 @@ responses:
   utter_ticket_submitted:
     - text: "I've submitted a support ticket on your behalf. Your case number is {ticket_number}."
   utter_ticket_summary:
-    - text: "[Shows summary of ticket]"
+    - text: |
+        **Ticket summary**
+        - Issue type: {connection_issue_type}
+        - Error message seen: {has_error_message}
+        - Error details: {error_message_text}
+        - Last successful connection: {last_successful_connection}
+        - Current network: {current_network}
+        - Case number: {ticket_number}
+        - Priority: {ticket_priority}
   utter_contacted_shortly:
     - text: "You'll be contacted shortly by someone from our support team."
 
