@@ -80,7 +80,8 @@ USER: wifi
 ...
 ```
 
-- [ ] Try to have this conversation;
+You can 
+- [ ] Try to have this conversation:
 ```diff
 BOT: Hello! You have reached the IT Help Desk. How may I help you?
 + USER: I haven't been able to connect with my VPN, since yesterday, through my home wifi
@@ -91,7 +92,7 @@ BOT: Got it. I'll help you troubleshoot that. First, do you see an error message
 ## Run the e2e tests
 You can run your end-to-end tests using this command: `rasa test e2e tests`
 
-That command runs all the tests created in the test directory.
+The above command runs all the tests created in the test directory.
 
 You'll find one test didn't work. Why? How can you fix it?
 
