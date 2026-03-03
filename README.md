@@ -99,7 +99,7 @@ You'll find one test didn't work. Why? How can you fix it?
 ## Launch this agent in Hello Rasa
 - [ ] Create a new flow which handles another type of IT issue.
 
-[![Launch on Hello Rasa](https://hello.rasa.com/launch.svg)](https://hello.rasa.com/go?repo=rrasa-customers/rasa-ws-msg-uc01-help-desk)  
+[![Launch on Hello Rasa](https://hello.rasa.com/launch.svg)](https://hello.rasa.com/go?repo=rasa-customers/rasa-ws-msg-uc01-help-desk)  
 
 ## Rasa commands
 
